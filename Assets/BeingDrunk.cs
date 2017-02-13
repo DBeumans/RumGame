@@ -7,11 +7,11 @@ using UnityEngine.UI;
 public class BeingDrunk : MonoBehaviour {
 
 	private Twirl twirl;
-	private float _sliderValue;
+	public float _sliderValue;
 	private Quaternion _armRotation;
 	[SerializeField]private GameObject _rightArm;
 	[SerializeField]private float _amount;
-	[SerializeField]private Slider _slider;
+	[SerializeField]public Slider _slider;
 
 	void Start () {
 		twirl = GetComponent<Twirl> ();
@@ -24,7 +24,7 @@ public class BeingDrunk : MonoBehaviour {
 		_slider.value = _sliderValue;
 		_sliderValue -= _amount / 10;
 		twirl.angle = _sliderValue;
-		if (Input.GetKeyDown (KeyCode.Space)) {
+		if (Input.GetKey (KeyCode.Space)) {
 			_rightArm.transform.localRotation = _armRotation;
 			_sliderValue += _amount;
 		} else {
